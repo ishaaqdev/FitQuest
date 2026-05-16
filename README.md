@@ -20,6 +20,22 @@ Finding verified local gyms, specialized coaches, or fitness centers often invol
 - **User Reviews**: Integrated feedback system to maintain service quality and transparency.
 - **Dynamic UI**: Responsive and fluid interface built with Framer Motion and Lucide icons.
 
+## How it Works
+FitQuest operates as a dual-sided marketplace catering to both fitness professionals and enthusiasts:
+
+- **For Coaches**: Trainers and service providers can create profiles and upload their services. They are encouraged to provide **proof of expertise** and certifications to build trust. Coaches can list services across multiple categories including **Sports, Exercise, Dance, and Yoga**.
+- **For Users**: Enthusiasts can explore verified services based on categories and location. The platform leverages a **review-based system**, allowing users to make informed decisions and get the most out of their fitness journey.
+
+## Visual Preview
+| | |
+|:---:|:---:|
+| ![Home Page](media/home-page.png) | ![Home Page 02](media/home-page02.png) |
+| Fig 1.1: Home Page | Fig 1.2: Home Page Features |
+| ![Home Page 03](media/home-page03.png) | ![User Explore](media/user-explore.png) |
+| Fig 1.3: Community Section | Fig 1.4: User Discovery |
+| ![User Explore 02](media/user-explore02.png) | ![Coach Dashboard](media/coach.png) |
+| Fig 1.5: Service Details | Fig 1.6: Coach Dashboard |
+
 ## Repo Structure
 ```text
 FitQuest/
