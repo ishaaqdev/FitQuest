@@ -26,15 +26,46 @@ FitQuest operates as a dual-sided marketplace catering to both fitness professio
 - **For Coaches**: Trainers and service providers can create profiles and upload their services. They are encouraged to provide **proof of expertise** and certifications to build trust. Coaches can list services across multiple categories including **Sports, Exercise, Dance, and Yoga**.
 - **For Users**: Enthusiasts can explore verified services based on categories and location. The platform leverages a **review-based system**, allowing users to make informed decisions and get the most out of their fitness journey.
 
-## Visual Preview
-| | |
-|:---:|:---:|
-| ![Home Page](media/home-page.png) | ![Home Page 02](media/home-page02.png) |
-| Fig 1.1: Home Page | Fig 1.2: Home Page Features |
-| ![Home Page 03](media/home-page03.png) | ![User Explore](media/user-explore.png) |
-| Fig 1.3: Community Section | Fig 1.4: User Discovery |
-| ![User Explore 02](media/user-explore02.png) | ![Coach Dashboard](media/coach.png) |
-| Fig 1.5: Service Details | Fig 1.6: Coach Dashboard |
+### Visual Preview
+
+<table width="100%">
+  <tr>
+    <td align="center" width="50%">
+      <h4>🏠 Home Page</h4>
+      <img src="media/home-page.png" alt="Home Page" style="border-radius: 8px;" />
+      <p><i>Fig 1.1: Landing Interface</i></p>
+    </td>
+    <td align="center" width="50%">
+      <h4>✨ Key Features</h4>
+      <img src="media/home-page02.png" alt="Features" style="border-radius: 8px;" />
+      <p><i>Fig 1.2: Core Capabilities</i></p>
+    </td>
+  </tr>
+  <tr>
+    <td align="center">
+      <h4>👥 Community Section</h4>
+      <img src="media/home-page03.png" alt="Community" style="border-radius: 8px;" />
+      <p><i>Fig 1.3: User Engagement</i></p>
+    </td>
+    <td align="center">
+      <h4>🔍 User Discovery</h4>
+      <img src="media/user-explore.png" alt="Discovery" style="border-radius: 8px;" />
+      <p><i>Fig 1.4: Service Exploration</i></p>
+    </td>
+  </tr>
+  <tr>
+    <td align="center">
+      <h4>🛠️ Service Details</h4>
+      <img src="media/user-explore02.png" alt="Details" style="border-radius: 8px;" />
+      <p><i>Fig 1.5: Detailed View</i></p>
+    </td>
+    <td align="center">
+      <h4>📊 Coach Dashboard</h4>
+      <img src="media/coach.png" alt="Dashboard" style="border-radius: 8px;" />
+      <p><i>Fig 1.6: Provider Management</i></p>
+    </td>
+  </tr>
+</table>
 
 ## Repo Structure
 ```text
@@ -87,10 +118,13 @@ Contributions are welcome! If you'd like to improve the project:
 ## Builders
 This project was developed by:
 
-- **Mohammed Ishaaq**  
-  [GitHub](https://github.com/ishaaqdev) | [LinkedIn](https://www.linkedin.com/in/ishaaq42/)
+### 👨‍💻 Mohammed Ishaaq
+[![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/ishaaqdev)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/ishaaq42/)
 
-- **Kiran Raj**  
-  [GitHub](https://github.com/Kiranraj18007) | [LinkedIn](https://www.linkedin.com/in/kiranraj-g/)
+### 👨‍💻 Kiran Raj
+[![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Kiranraj18007)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/kiranraj-g/)
 
+---
 Developed for the FSD Course (6th Sem ISE).
