@@ -57,6 +57,12 @@ git clone https://github.com/ishaaqdev/FitQuest.git
 cd FitQuest
 ```
 
+## Prerequisites
+Before you begin, ensure you have the following installed:
+- **Node.js**: [Download and Install](https://nodejs.org/)
+- **MongoDB**: [Local](https://www.mongodb.com/try/download/community) or [Atlas](https://www.mongodb.com/cloud/atlas)
+- Check **[requirements.txt](requirements.txt)** for the full list of dependencies and versions.
+
 ## How to Run
 
 ### 1. Server Setup
