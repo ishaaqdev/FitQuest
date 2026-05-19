@@ -4,7 +4,7 @@ This guide is structured to help you present **FitQuest India** to your Full Sta
 
 ---
 
-## 🗺️ 1. High-Level Project Philosophy
+## 1. High-Level Project Philosophy
 **FitQuest India** is a dual-sided sports and fitness marketplace built on the modern **MERN Stack** (MongoDB, Express, React, Node.js). 
 
 ### The Problem It Solves
@@ -19,7 +19,7 @@ This guide is structured to help you present **FitQuest India** to your Full Sta
 
 ---
 
-## 🏗️ 2. Architectural System Design
+## 2. Architectural System Design
 
 ```mermaid
 graph TD
@@ -62,7 +62,7 @@ graph TD
 
 ---
 
-## 🗄️ 3. Database Schema Design (MongoDB & Mongoose)
+## 3. Database Schema Design (MongoDB & Mongoose)
 
 FitQuest India models relations using MongoDB references (`mongoose.Schema.Types.ObjectId` with `ref`). This achieves relational normalization on a NoSQL database while keeping queries fast.
 
@@ -143,9 +143,7 @@ Saves individual student feedback.
 
 ---
 
-## 🔒 4. Security & Authentication Architecture
-
-FitQuest India implements industry-standard **Stateless JWT-Based Authentication** to protect routes.
+## 4. Security & Authentication Architecture
 
 ```text
 [ Athlete / Coach ]                                         [ Express App Server ]
@@ -176,9 +174,9 @@ Passwords are never saved in plain text.
 
 ---
 
-## 🛠️ 5. Key File Walkthrough
+## 5. Key File Walkthrough
 
-### 🔒 `server/middleware/authMiddleware.js`
+### `server/middleware/authMiddleware.js`
 This file acts as our security gatekeeper.
 - **`protect`**: Intercepts the request, validates the JWT, and extracts the user context.
 - **`coachOnly`**: Role-Based Access Control (RBAC). It checks if the user's role in the decrypted token is `Coach`. If not, it halts the request with a `403 Forbidden` response.
@@ -216,7 +214,7 @@ export const coachOnly = (req, res, next) => {
 
 ---
 
-### 🌐 `client/src/contexts/AppContext.jsx`
+### `client/src/contexts/AppContext.jsx`
 The central hub for state management in our React app. It uses **React Context API** instead of heavy Redux.
 - **Dynamic API Resiliency**: It has built-in mock fallbacks. If the backend is turned off, the frontend doesn't crash! It automatically falls back to clean, mock-data objects (`sampleServices`, `fakeUsers`), keeping the site completely interactive and functional.
 - **Local Storage Sync**: Automatically syncs user credentials and theme (`dark` / `light`) into the browser's `localStorage` for session persistence.
@@ -224,7 +222,7 @@ The central hub for state management in our React app. It uses **React Context A
 
 ---
 
-## 💻 6. How to Run Locally
+## 6. How to Run Locally
 
 ### Prerequisites
 Make sure **MongoDB Server** is running on your machine (default port `27017`).
@@ -242,41 +240,42 @@ npm run dev   # Starts Nodemon watcher at http://localhost:5000
 ```bash
 cd client
 npm install
-npm run dev   # Starts Vite development server at http://localhost:5173
+# Starts Vite development server at http://localhost:5173
+npm run dev
 ```
 
 ---
 
-## 🎓 7. FSD Faculty Viva Q&A (Common Questions & Expert Answers)
+## 7. FSD Faculty Viva Q&A (Common Questions & Expert Answers)
 
 Here are the exact questions external examiners love to ask to test your depth of knowledge, accompanied by professional answers.
 
-### ❓ Q1: Why did you use JWT instead of standard Session-based Authentication?
+### Q1: Why did you use JWT instead of standard Session-based Authentication?
 > **Answer**: Session-based authentication is stateful, meaning the server has to store session IDs in memory or a database (e.g., Redis) and look them up on every request. This is hard to scale horizontally across multiple servers. 
 > 
 > In contrast, **JWT (JSON Web Token)** is **stateless**. The user information is cryptographically signed and stored on the client side. The server only needs to decrypt the token using its secret key. This reduces database queries and makes the backend highly scalable.
 
-### ❓ Q2: What is Bcrypt and why is the second argument "10" in `bcrypt.hash()`?
+### Q2: What is Bcrypt and why is the second argument "10" in `bcrypt.hash()`?
 > **Answer**: **Bcrypt** is a key derivation function designed specifically for hashing passwords. It uses an adaptive hashing algorithm to defend against brute-force attacks. 
 > 
 > The second argument (`10`) represents the **Salt Rounds**. The number of rounds determines the work factor: $2^{10}$ hashing iterations are performed. Increasing this number makes the hashing exponentially slower and more secure, but also increases server CPU consumption. `10` is the industry standard sweet-spot.
 
-### ❓ Q3: What is the purpose of Mongoose's `.populate()` method? How does it differ from SQL Joins?
+### Q3: What is the purpose of Mongoose's `.populate()` method? How does it differ from SQL Joins?
 > **Answer**: MongoDB is a document database, so it doesn't support traditional SQL joins. However, we can reference documents in other collections using `ObjectId` and `ref`.
 > 
 > Mongoose's `.populate()` method is a utility that automates this link. Behind the scenes, it executes a separate query to fetch the referenced document (e.g., fetching a Coach's name using the `coachId` reference inside a `Service`). It makes our code much cleaner, though we must design queries carefully to avoid $N+1$ query performance issues.
 
-### ❓ Q4: How did you implement Role-Based Access Control (RBAC) in this project?
+### Q4: How did you implement Role-Based Access Control (RBAC) in this project?
 > **Answer**: We implemented RBAC using **Custom Express Middleware**. We have a `protect` middleware that verifies the JWT and attaches the decrypted payload (`req.user = decoded`) to the request object. 
 > 
 > Then, we have a secondary middleware called `coachOnly`. It checks if `req.user.role === 'Coach'`. If true, it calls `next()` to pass execution to the controller; otherwise, it intercepts the request and returns a `403 Forbidden` status code, preventing unauthorized access.
 
-### ❓ Q5: What is CORS? How did you resolve it in this application?
+### Q5: What is CORS? How did you resolve it in this application?
 > **Answer**: **CORS (Cross-Origin Resource Sharing)** is a browser security mechanism that prevents web applications running on one domain (like the React client on `http://localhost:5173`) from making requests to a different domain (like the Express API on `http://localhost:5000`) without explicit permission.
 > 
 > We resolved it by installing the `cors` package in Express and mounting it as application-wide middleware: `app.use(cors())`. This sends the appropriate headers (like `Access-Control-Allow-Origin: *`) in backend responses, telling the browser to permit cross-origin requests.
 
-### ❓ Q6: How does the application maintain state across page refreshes?
+### Q6: How does the application maintain state across page refreshes?
 > **Answer**: The application uses **React Context** (`AppContext.jsx`) in tandem with **LocalStorage**. In the context's initialization, we pull data from localStorage if it exists (`localStorage.getItem('fq-token')`). 
 > 
 > We also run a React `useEffect` hook that listens to state updates. Whenever the state of the user or JWT token changes, the hook automatically synchronizes it back to localStorage. This ensures users stay logged in even after refreshing.
